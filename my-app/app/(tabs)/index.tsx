@@ -1,7 +1,5 @@
 import { Image } from 'expo-image';
 import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -23,7 +21,19 @@ export default function HomeScreen() {
       </ThemedView>
       
       <ThemedView style={styles.cartePost}>
-        
+        <Image 
+        source={require('@/assets/images/PPterryCrews.jpg')} 
+        id="PP"
+        style={styles.photoProfil}/>
+        <ThemedText id='pseudo'>TestDePseudo</ThemedText>
+        <ThemedText id='timePasse'>10min ago</ThemedText>
+
+        <ThemedText id='contenuPost'>Ceci est un commentaire de post de test</ThemedText>
+        <ThemedText id='heart' >♡</ThemedText>
+        <ThemedText id='nbHeart' >35.8k</ThemedText>
+        <ThemedText id='comment' >💬</ThemedText>
+        <ThemedText id='nbComment' >35</ThemedText>
+        <ThemedText id='share' >╰┈➤</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -41,7 +51,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   cartePost: {
-    backgroundColor: 'blue',
+
+  },
+  photoProfil: {
 
   },
   stepContainer: {
