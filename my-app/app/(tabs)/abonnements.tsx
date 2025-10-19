@@ -12,11 +12,8 @@ const screenWidth = Dimensions.get('window').width;
 
 export default function HomeScreen() {
 
-  const [liker, estLiker] = useState(false);
-
-  const coeurCliquer = () => {
-    estLiker(!liker);
-  }
+  const [liker1, estLiker1] = useState(false);
+  const [liker2, estLiker2] = useState(false);
 
   return (
 <ThemedView style={styles.body}>
@@ -43,7 +40,7 @@ export default function HomeScreen() {
 
         <ThemedView style={styles.optionPost}>
           <ThemedView style={styles.coeur}>
-            <ThemedText id='heart' onPress={coeurCliquer} >{liker ? '❤️' : '♡'}</ThemedText>
+            <ThemedText id='heart' onPress={() => estLiker1(!liker1)} >{liker1 ? '❤️' : '♡'}</ThemedText>
             <ThemedText id='nbHeart' >35.8k</ThemedText>
           </ThemedView>
           <ThemedView style={styles.actionCommentaire}>
@@ -73,9 +70,9 @@ export default function HomeScreen() {
           id="PP"
           style={styles.photoArticle}/>
 
-        <ThemedView style={styles.optionPost}>
+       <ThemedView style={styles.optionPost}>
           <ThemedView style={styles.coeur}>
-            <ThemedText id='heart' >♡</ThemedText>
+            <ThemedText id='heart' onPress={() => estLiker2(!liker2)} >{liker2 ? '❤️' : '♡'}</ThemedText>
             <ThemedText id='nbHeart' >35.8k</ThemedText>
           </ThemedView>
           <ThemedView style={styles.actionCommentaire}>
