@@ -4,12 +4,20 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+import { useState } from 'react';
 
 
 const screenWidth = Dimensions.get('window').width;
 
 
 export default function HomeScreen() {
+
+  const [liker, estLiker] = useState(false);
+
+  const coeurCliquer = () => {
+    estLiker(!liker);
+  }
+
   return (
 <ThemedView style={styles.body}>
 
@@ -26,11 +34,16 @@ export default function HomeScreen() {
           </ThemedView>
         </ThemedView>
 
-        <ThemedText id='contenuPost' style={styles.commentaire}>Ceci est un commentaire de post de test</ThemedText>
+        <ThemedText id='contenuPost' style={styles.commentaire}>
+          ✨📖 C’est avec une immense joie que je vous annonce la sortie de mon nouveau livre !
+            Après des mois de travail, de réflexion et d’écriture, je peux enfin partager avec vous cet univers qui me tient tant à cœur. Ce livre est le reflet de mes pensées, de mes émotions et de mes expériences, et j’espère qu’il saura résonner avec vous autant qu’il a résonné en moi. 
+            Disponible dès maintenant en librairie et en ligne. Merci à tous pour votre soutien, et bonne lecture ! 💛
+            #NouveauLivre #Écriture #Partage #Art (chatgpt)
+        </ThemedText>
 
         <ThemedView style={styles.optionPost}>
           <ThemedView style={styles.coeur}>
-            <ThemedText id='heart' >♡</ThemedText>
+            <ThemedText id='heart' onPress={coeurCliquer} >{liker ? '❤️' : '♡'}</ThemedText>
             <ThemedText id='nbHeart' >35.8k</ThemedText>
           </ThemedView>
           <ThemedView style={styles.actionCommentaire}>
@@ -54,7 +67,11 @@ export default function HomeScreen() {
           </ThemedView>
         </ThemedView>
 
-        <ThemedText id='contenuPost' style={styles.commentaire}>Ceci est un commentaire de post de test</ThemedText>
+        <ThemedText id='contenuPost' style={styles.commentaire}>Voici la couverture pour les interessé </ThemedText>
+        <Image 
+          source={require('@/assets/images/couvertureLivre.jpg')} 
+          id="PP"
+          style={styles.photoArticle}/>
 
         <ThemedView style={styles.optionPost}>
           <ThemedView style={styles.coeur}>
@@ -138,5 +155,9 @@ const styles = StyleSheet.create({
   },
   actionCommentaire: {
     flexDirection: 'row',
+  },
+  photoArticle: {
+    width: 200,
+    height: 200,
   },
 });
